@@ -1,0 +1,35 @@
+package com.blogs.pojos;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+@Entity
+@Getter
+@Setter
+@ToString(callSuper = true)
+@AllArgsConstructor
+@NoArgsConstructor
+
+public class Appointment {
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long appointmentid;
+@ManyToOne
+@JoinColumn(name = "userId", referencedColumnName = "id")
+private Users userId;
+@ManyToOne
+@JoinColumn(name = "farmer_id", referencedColumnName = "id")
+private Products productId;
+@ManyToOne
+@JoinColumn(name = "farmer_id", referencedColumnName = "id")
+private Market marketId;
+private String status;
+}
+

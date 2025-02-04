@@ -1,0 +1,46 @@
+package com.agro.pojo;
+
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Table(name = "users")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString(callSuper = true)
+public class Users {
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long userId;
+
+    private String username;
+    private String password;
+    private String email;
+    private String address;
+    private String contactNo;
+
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
+
+    @OneToMany(mappedBy = "user") // The mappedBy should match the field in Products
+    private List<Products> products; // Unidirectional, Users know about Products
+
+    @OneToOne(mappedBy = "user")
+    private List<Appointment> appointments; // A user can have many appointments
+}

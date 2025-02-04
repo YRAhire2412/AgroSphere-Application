@@ -1,0 +1,15 @@
+package com.example.pojo;
+
+@Entity
+@Getter
+@Setter
+@ToString(callSuper = true)
+@AllArgsConstructor
+public class Products {
+private Long productId;
+private String productName;
+private String quantity;
+private String category;
+@OneToMany
+private Long userId;
+}

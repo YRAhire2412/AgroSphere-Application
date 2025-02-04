@@ -1,0 +1,23 @@
+package com.agro.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.agro.dao.UserDao;
+import com.agro.pojo.Users;
+
+import jakarta.transaction.Transactional;
+
+@Service
+@Transactional
+public class BuyerServiceImpl {
+	@Autowired
+	private UserDao userDao;
+	
+	@Override
+	public List<Users> getAllBuyers(){
+		return userDao.findAll();
+	}
+}

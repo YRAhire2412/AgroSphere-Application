@@ -1,0 +1,33 @@
+package com.example.pojo;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
+
+@Entity
+@Getter
+@Setter
+@ToString(callSuper = true)
+@AllArgsConstructor
+public class Products {
+
+    @Id
+    private Long productId;
+    
+    private String productName;
+    private String quantity;
+    private String category;
+
+    @OneToMany(mappedBy = "product") // Assuming 'product' in User class references Products
+    private List<User> users;
+
+    // JPA requires a no-argument constructor
+    public Products() {
+    }
+}

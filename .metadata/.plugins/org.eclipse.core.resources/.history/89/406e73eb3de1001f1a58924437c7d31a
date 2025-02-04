@@ -1,0 +1,35 @@
+package com.app.entities;
+
+import java.util.List;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.OneToMany;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Getter
+@Setter
+@ToString(callSuper = true)
+@AllArgsConstructor
+@NoArgsConstructor
+public class Products {
+
+    @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    private Long productId;
+    
+    private String productName;
+    private String quantity;
+    private String category;
+
+//    @OneToMany(mappedBy = "Users") // Assuming 'product' in User class references Products
+//    private List<Users> users;
+
+}

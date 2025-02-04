@@ -1,0 +1,14 @@
+package com.example.pojo;
+
+import jakarta.persistence.OneToMany;
+
+public class Appointment {
+	@Id
+	private Long Appointmentid;
+	@OneToMany
+private Long userId;
+private Long prodId;
+private Long marketId;
+private String status;
+}
+

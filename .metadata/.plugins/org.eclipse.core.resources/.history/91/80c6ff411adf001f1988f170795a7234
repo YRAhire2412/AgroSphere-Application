@@ -1,0 +1,10 @@
+package com.example.pojo;
+
+public class Market {
+private Long marketId;
+private String marketName;
+private String address;
+private String district;
+private String state;
+private String productId
+}

@@ -1,0 +1,51 @@
+package com.agro.pojo;
+
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Getter
+@Setter
+@ToString(callSuper = true)
+@AllArgsConstructor
+@NoArgsConstructor
+public class Products {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long productId;
+
+    private String productName;
+    private String quantity;
+    private String category;
+
+    // Unidirectional relationship: Products know about Users
+    @ManyToOne
+    @JoinColumn(name = "user_id") // Foreign key column in Products table
+    private Users user; // Each product is linked to one user
+
+    @ManyToOne
+    @JoinColumn(name = "market_id") // Foreign key to Market
+    private Market market;
+
+    @OneToMany
+    @JoinColumn(name = "product_id") // Foreign key in Appointments table
+    private List<Appointment> appointments;
+
+    @ManyToOne
+    @JoinColumn(name = "market_rate_id") // Foreign key to MarketRate
+    private MarketRate marketRate;
+
+}

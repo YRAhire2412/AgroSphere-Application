@@ -1,0 +1,22 @@
+package com.app.service;
+
+import java.util.List;
+
+import com.app.entities.Products;
+
+public interface ProductService {
+
+	List<Products> getProducts();
+
+	Products getProductById(Long id);
+
+	String addProduct(Products product);
+
+	String updateProduct(Products product);
+
+	String deleteProduct(Long id);
+
+	List<Products> searchProductByName(String name);
+
+
+}

@@ -1,0 +1,5 @@
+package com.agro.pojo;
+
+public enum UserType {
+FARMER,BUYER
+}

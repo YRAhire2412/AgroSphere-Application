@@ -1,0 +1,25 @@
+package com.example.pojo;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Getter
+@Setter
+@ToString(callSuper = true)
+@AllArgsConstructor
+@NoArgsConstructor
+public class Market {
+@Id
+private Long marketId;
+private String marketName;
+private String address;
+private String district;
+private String state;
+private String productId;
+}

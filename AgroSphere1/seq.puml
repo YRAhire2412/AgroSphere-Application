@@ -1,0 +1,37 @@
+@startuml
+actor Farmer
+entity UserEntity
+entity Market
+entity Product
+entity MarketRate
+entity Appointment
+
+' Farmer selects a Market
+Farmer -> UserEntity: Select Market
+UserEntity -> Market: Get available markets
+Market -> Farmer: Display available markets
+
+' Farmer selects a Product from Market
+Farmer -> Market: Select Product
+Market -> Product: Get Product details
+Product -> Market: Return Product details
+
+' Market checks Product availability and Market Rate
+Market -> MarketRate: Get MarketRate for selected Product
+MarketRate -> Market: Return MarketRate details
+
+' Farmer creates an Appointment with the Market for the selected Product
+Farmer -> Appointment: Create Appointment
+Appointment -> Market: Verify Market availability
+Market -> Appointment: Confirm availability
+
+' Appointment is confirmed and updated
+Appointment -> Product: Link Appointment to Product
+Product -> Market: Update Product status
+Market -> MarketRate: Update MarketRate for Product
+MarketRate -> Market: Confirm MarketRate update
+
+' Final confirmation to Farmer
+Market -> Farmer: Appointment and Product details confirmed
+
+@enduml

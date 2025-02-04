@@ -1,0 +1,9 @@
+package com.example.pojo;
+
+public class Appointment {
+	private Long Appointmentid;
+private Long userId;
+private Long prodId;
+private Long marketId;
+}
+

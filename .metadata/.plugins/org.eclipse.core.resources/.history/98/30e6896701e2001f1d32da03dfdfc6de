@@ -1,0 +1,30 @@
+package com.app.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Getter
+@Setter
+@ToString(callSuper = true)
+@AllArgsConstructor
+@NoArgsConstructor
+public class Product extends BaseEntity{
+
+    
+    private String productName;
+    private String quantity;
+    private String category;
+
+//    @OneToMany(mappedBy = "Users") // Assuming 'product' in User class references Products
+//    private List<Users> users;
+
+}

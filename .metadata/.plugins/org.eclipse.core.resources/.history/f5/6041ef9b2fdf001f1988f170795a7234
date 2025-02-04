@@ -1,0 +1,6 @@
+package com.blogs.pojos;
+
+public class Users {
+private Long userId;
+private String username;
+}

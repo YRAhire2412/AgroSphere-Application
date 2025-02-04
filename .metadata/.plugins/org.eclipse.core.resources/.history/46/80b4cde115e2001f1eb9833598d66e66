@@ -1,0 +1,24 @@
+package com.app.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.app.dao.AppointmentEntityDao;
+import com.app.entities.Appointment;
+
+public class AppointmentServiceImpl implements AppointmentService{
+	@Autowired
+	AppointmentEntityDao appointmentEntityDao;
+	
+	@Override
+	public List<Appointment> getAppointments() {	
+		return appointmentEntityDao.findAll();	
+	}	
+
+	@Override 
+	public String addAppointment(Appointment appointment) {
+		appointmentEntityDao.save(appointment);    
+        return "Appointment added successfully";	
+	}
+}
