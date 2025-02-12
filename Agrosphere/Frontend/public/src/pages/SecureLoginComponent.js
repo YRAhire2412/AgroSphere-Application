@@ -89,7 +89,7 @@ export default function LoginComponent() {
           {/* Google reCAPTCHA */}
           <div className="captcha-container">
             <ReCAPTCHA
-              sitekey="6LcgutMqAAAAAIF5Bsd3pxyYKCPPSkMZmpb8ZQBL" // Replace with your site key
+              sitekey="Domain key" // Replace with your site key
               onChange={onCaptchaChange}
             />
           </div>
