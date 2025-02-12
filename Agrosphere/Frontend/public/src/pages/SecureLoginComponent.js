@@ -1,4 +1,4 @@
-import { useState } from "react";
+eimport { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../component/AuthContext";
 import AuthService from "../services/AuthService";
@@ -89,7 +89,7 @@ export default function LoginComponent() {
           {/* Google reCAPTCHA */}
           <div className="captcha-container">
             <ReCAPTCHA
-              sitekey="Domain key" // Replace with your site key
+              sitekey="Enter Domain key" // Replace with your site key
               onChange={onCaptchaChange}
             />
           </div>
